@@ -1,0 +1,43 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <h2>My Career Objective Page</h2>
+    <ul>
+        <li ng-repeat="obj in vm.careers"> {{obj.careername}}
+            - <a ng-click="vm.edit(obj)">Edit</a>
+            | <a ng-click="vm.deleteObj(obj.id)">Delete</a>
+        </li>
+    </ul>
+    <form name="form" ng-submit="vm.submitNew()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.careername.$dirty && form.careername.$error.required }">
+            <label for="careername">Objective Title</label>
+            <input type="text" name="careername" id="careername" class="form-control" ng-model="vm.obj.careername" required />
+            <span ng-show="form.careername.$dirty && form.careername.$error.required" class="help-block">Title is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.careerdescription.$dirty && form.careerdescription.$error.required }">
+            <label for="careerdescription">Description</label>
+            <input type="text" name="careerdescription" id="careerdescription" class="form-control" ng-model="vm.obj.careerdescription" required />
+            <span ng-show="form.careerdescription.$dirty && form.careerdescription.$error.required" class="help-block">Title is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.reason.$dirty && form.reason.$error.required }">
+            <label for="reason">Reason</label>
+            <input type="text" name="reason" id="reason" class="form-control" ng-model="vm.obj.reason" required />
+            <span ng-show="form.reason.$dirty && form.reason.$error.required" class="help-block">Reason is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.targetdate.$dirty && form.targetdate.$error.required }">
+            <label for="targetdate">Target Date</label>
+            <input type="date" name="targetdate" id="targetdate" class="form-control" ng-model="vm.obj.targetdate" required />
+            <span ng-show="form.targetdate.$dirty && form.targetdate.$error.required" class="help-block">Target Date is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.completeddate.$dirty && form.completeddate.$error.required }">
+            <label for="completeddate">Completed Date</label>
+            <input type="date" name="completeddate" id="completeddate" class="form-control" ng-model="vm.obj.completeddate" required />
+            <span ng-show="form.completeddate.$dirty && form.completeddate.$error.required" class="help-block">Completed Date is required</span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">{{!vm.isEditing ? 'Submit' : 'Update'}}</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a href="#!/" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+    <br>
+    (+) <a ng-click="vm.reset()">Reset fields to add new entry</a>
+</div>

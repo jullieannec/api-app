@@ -1,0 +1,18 @@
+{
+  "name": "api-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "jullie",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.10",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
